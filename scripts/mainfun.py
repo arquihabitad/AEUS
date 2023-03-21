@@ -34,11 +34,7 @@ class FuncionesVPrincipal():
             str(self.aceleracion_pico_efectiva_reducida))
         self.label_aceleracion_sismo_diseno.setText(
             str(self.aceleracion_sismo_diseno))
-        if self.aceleracion_pico_efectiva == 0 and {
-                self.velocidad_pico_efectiva == 0}:
-            self.label_amenaza_sismica.setText('Ninguna')
-            self.label_disipacion_requerida.setText('Ninguna')
-        elif self.aceleracion_pico_efectiva <= 0.1 and self.velocidad_pico_efectiva <= 0.1:
+        if self.aceleracion_pico_efectiva <= 0.1 and self.velocidad_pico_efectiva <= 0.1:
             self.label_amenaza_sismica.setText('Baja')
             self.label_disipacion_requerida.setText(
                 'Disipación mínima - DMI')
@@ -50,6 +46,9 @@ class FuncionesVPrincipal():
             self.label_amenaza_sismica.setText('Alta')
             self.label_disipacion_requerida.setText(
                 'Disipación especial - DES')
+        else:
+            self.label_amenaza_sismica.setText('Ninguna')
+            self.label_disipacion_requerida.setText('Ninguna')
         self.amenaza_sismica = self.label_amenaza_sismica.text()
         self.disipacion_requerida = self.label_disipacion_requerida.text()
         self.guardar_cambio(
@@ -128,7 +127,7 @@ class FuncionesVPrincipal():
             self.lista_tipo_resistencia)
         self.disipacion_minima = 'Pórticos resistentes a momentos con capacidad mínima de disipación de energía (DMI)'
         self.disipacion_moderada = 'Pórticos resistentes a momentos con capacidad moderada de disipación de energía (DMO)'
-        self.disipacion_especial = 'Pórticos resistentes a momentos con capacidad especial de disipación de energía (DES)'
+        self.disipacion_especial = 'Pórticos resistentes a momentos co  n capacidad especial de disipación de energía (DES)'
         if self.resistencia_horizontal == self.disipacion_minima:
             self.segunda_nota = 'El ancho mínimo (bw) no tiene restricción'
             self.tercera_nota = ''
@@ -270,7 +269,7 @@ class FuncionesVPrincipal():
         elif self.aceleracion_pico_efectiva > 0.3 and self.aceleracion_pico_efectiva < 0.4:
             self.parametro_Fa = (self.datos_memoria.diccionario_Fat[self.tipo_suelo][0.3]+self.datos_memoria.diccionario_Fat[self.tipo_suelo][0.4])/2
         elif self.aceleracion_pico_efectiva == 0.4:
-            self.parametro_Fa = self.datos_memoria.diccionario_Fat[self.tipo_suelo][0.2]
+            self.parametro_Fa = self.datos_memoria.diccionario_Fat[self.tipo_suelo][0.4]
         elif self.aceleracion_pico_efectiva > 0.4 and self.aceleracion_pico_efectiva < 0.5:
             self.parametro_Fa = (self.datos_memoria.diccionario_Fat[self.tipo_suelo][0.4]+self.datos_memoria.diccionario_Fat[self.tipo_suelo][0.5])/2
         else:

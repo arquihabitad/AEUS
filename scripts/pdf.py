@@ -98,7 +98,7 @@ class GenerarReportePDF():
         self.insertar_texto(Story, styles['Justify'], f'Altura de la viga (h) = {self.datos_memoria.altura_viga_d} cm')
         self.insertar_texto(Story, styles['Justify'], f'Recubrimiento inferior (r) = {self.datos_memoria.recubrimiento_inferior_viga} cm')
         self.insertar_texto(Story, styles['Justify'], f'Recubrimiento superior (rp) = {self.datos_memoria.recubrimiento_superior_viga} cm')
-        self.insertar_texto(Story, styles['Justify'], f'Longitud libre (Ln) = {self.datos_memoria.longitud_libre_viga} cm')
+        self.insertar_texto(Story, styles['Justify'], f'Longitud libre (Ln) = {self.datos_memoria.longitud_libre_viga} m')
         Story.append(Spacer(1, 12))
         self.insertar_texto(Story, styles['Justify'], '1.2 - Datos de los materiales')
         Story.append(Spacer(1, 12))
